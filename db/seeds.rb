@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Market.destroy_all
+FoodTruckCuisine.destroy_all
 FoodTruck.destroy_all
 Cuisine.destroy_all
 User.destroy_all 
@@ -22,6 +23,8 @@ poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"P
 fat_food = FoodTruck.create(name: "The Fat Food", user: tom, description:"Get Fat", profile_picture:"", twitter_account:"@Fat Place" )
 
 ft_cuisine_1 = FoodTruckCuisine.create(cuisine_id: canadian.id, food_truck_id: poutinerie.id)
+ft_cuisine_2 = FoodTruckCuisine.create(cuisine_id: french.id, food_truck_id: poutinerie.id)
+ft_cuisine_3 = FoodTruckCuisine.create(cuisine_id: french.id, food_truck_id: fat_food.id)
 
 brick_lane_upmarket = Market.create(name: "Brick Lane Upmarket", address_1: "The Truman Brewery", address_2: "91 Brick Ln", postcode: "E1 6QL", town: "London", latitude:"51.520193", longitude:"-0.071876")
 leather_lane_market = Market.create(name: "Leather Lane Street Market", address_1: "Leather Ln", address_2: "Holborn", postcode: "EC1N 7TJ", town: "London", latitude:"51.520148", longitude:"-0.109413")
