@@ -10,17 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_113321) do
+ActiveRecord::Schema.define(version: 2019_11_01_115431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "food_truck_cuisines", force: :cascade do |t|
+    t.bigint "food_truck_id", null: false
+    t.bigint "cuisine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cuisine_id"], name: "index_food_truck_cuisines_on_cuisine_id"
+    t.index ["food_truck_id"], name: "index_food_truck_cuisines_on_food_truck_id"
+  end
 
   create_table "food_trucks", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "twitter_account"
+    t.string "description"
+    t.string "profile_picture"
     t.index ["user_id"], name: "index_food_trucks_on_user_id"
+  end
+
+  create_table "markets", force: :cascade do |t|
+    t.string "name"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "postcode"
+    t.string "town"
+    t.string "latitude"
+    t.string "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,5 +60,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_113321) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "food_truck_cuisines", "cuisines"
+  add_foreign_key "food_truck_cuisines", "food_trucks"
   add_foreign_key "food_trucks", "users"
 end

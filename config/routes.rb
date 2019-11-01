@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :food_truck_cuisines
+  resources :cuisines, only: [:index]
+  resources :markets, only: [:index]
   resources :food_trucks, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: [:index, :show, :create]
   post "/login", to: "auth#create"
