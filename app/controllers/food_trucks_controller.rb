@@ -21,13 +21,17 @@ class FoodTrucksController < ApplicationController
   def update
     food_truck = FoodTruck.find(params[:id])
     food_truck.update(food_truck_params)
-    render json: { food_truck: food_truck}
+    if (food_truck.valid?)
+      render json: { food_truck: food_truck}
+    else
+      render json: { errors: food_truck.errors.full_messages }
+    end
   end
 
   private
 
   def food_truck_params
-    params.require(:food_truck).permit(:name, :description, :profile_picture, :twitter_account)
+    params.require(:food_truck).permit(:name, :description, :profile_picture, :twitter_account, :archived)
   end
 
 end

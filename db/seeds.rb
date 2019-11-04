@@ -19,7 +19,7 @@ canadian = Cuisine.create(name: "Canadian")
 french = Cuisine.create(name: "French")
 italian = Cuisine.create(name: "Italian")
 
-poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"Poutine Purveyors - London's proper poutine Brick Lane market on Sundays", profile_picture:"", twitter_account:"@The Poutinerie")
+poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"Poutine Purveyors - London's proper poutine Brick Lane market on Sundays", profile_picture:"https://assets.londonist.com/uploads/2018/11/i875/poutinerie.jpg", twitter_account:"@The Poutinerie")
 fat_food = FoodTruck.create(name: "The Fat Food", user: tom, description:"Get Fat", profile_picture:"", twitter_account:"@Fat Place" )
 
 ft_cuisine_1 = FoodTruckCuisine.create(cuisine_id: canadian.id, food_truck_id: poutinerie.id)
