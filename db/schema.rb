@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_084143) do
+ActiveRecord::Schema.define(version: 2019_11_04_134923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,31 @@ ActiveRecord::Schema.define(version: 2019_11_03_084143) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "schedule_days", force: :cascade do |t|
+    t.date "date"
+    t.string "from_time"
+    t.string "to_time"
+    t.boolean "available"
+    t.bigint "market_id", null: false
+    t.bigint "food_truck_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_truck_id"], name: "index_schedule_days_on_food_truck_id"
+    t.index ["market_id"], name: "index_schedule_days_on_market_id"
+  end
+
+  create_table "schedule_recurrences", force: :cascade do |t|
+    t.string "weekday"
+    t.string "from_time"
+    t.string "to_time"
+    t.bigint "market_id", null: false
+    t.bigint "food_truck_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_truck_id"], name: "index_schedule_recurrences_on_food_truck_id"
+    t.index ["market_id"], name: "index_schedule_recurrences_on_market_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -64,4 +89,8 @@ ActiveRecord::Schema.define(version: 2019_11_03_084143) do
   add_foreign_key "food_truck_cuisines", "cuisines"
   add_foreign_key "food_truck_cuisines", "food_trucks"
   add_foreign_key "food_trucks", "users"
+  add_foreign_key "schedule_days", "food_trucks"
+  add_foreign_key "schedule_days", "markets"
+  add_foreign_key "schedule_recurrences", "food_trucks"
+  add_foreign_key "schedule_recurrences", "markets"
 end

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-11-04
+  from_time: MyString
+  to_time: MyString
+  presence: false
+  market: one
+  food_truck: one
+
+two:
+  date: 2019-11-04
+  from_time: MyString
+  to_time: MyString
+  presence: false
+  market: two
+  food_truck: two
