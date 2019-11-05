@@ -9,9 +9,8 @@ class ScheduleRecurrencesController < ApplicationController
 
   def create
     schedule_recurrence = ScheduleRecurrence.create(schedule_recurrence_params)
-    schedule_recurrence.update(user: @current_user) 
     if (schedule_recurrence.valid?)
-      render json: {schedule_recurrence: schedule_recurrence}
+      render json: { schedule_recurrence: ScheduleRecurrenceSerializer.new(schedule_recurrence)}
     else
       render json: { errors: schedule_recurrence.errors.full_messages }
     end
@@ -27,10 +26,16 @@ class ScheduleRecurrencesController < ApplicationController
     end
   end
 
+  def destroy
+    schedule_recurrence = ScheduleRecurrence.find(params[:id])
+    schedule_recurrence.destroy
+    # render json: { message: "It worked !"}
+  end
+
   private
 
   def schedule_recurrence_params
-    params.require(:schedule_recurrence).permit(:date, :from_time, :to_time, :available, :market_id, :food_truck_id)
+    params.require(:schedule_recurrence).permit(:weekday, :from_time, :to_time, :available, :market_id, :food_truck_id)
   end
 
 end

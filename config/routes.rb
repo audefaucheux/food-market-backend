@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :schedule_days, only: [:index, :show, :create, :update, :delete]
-  resources :schedule_recurrences, only: [:index, :show, :create, :update, :delete]
+  # resources :schedule_days, only: [:index, :show, :create, :update, :destroy]
+  resources :schedule_recurrences, only: [:index, :show, :create, :update, :destroy]
   resources :food_trucks, only: [:index, :show, :create, :update]
   resources :users, only: [:index, :show, :create]
   post "/login", to: "auth#create"
