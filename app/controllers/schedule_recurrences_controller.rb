@@ -35,7 +35,7 @@ class ScheduleRecurrencesController < ApplicationController
   private
 
   def schedule_recurrence_params
-    params.require(:schedule_recurrence).permit(:weekday, :from_time, :to_time, :available, :market_id, :food_truck_id)
+    params.require(:schedule_recurrence).permit(:day_num, :from_time, :to_time, :available, :market_id, :food_truck_id)
   end
 
 end

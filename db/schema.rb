@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_134923) do
+ActiveRecord::Schema.define(version: 2019_11_05_150138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 2019_11_04_134923) do
   end
 
   create_table "schedule_recurrences", force: :cascade do |t|
-    t.string "weekday"
     t.string "from_time"
     t.string "to_time"
     t.bigint "market_id", null: false
     t.bigint "food_truck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "day_num"
     t.index ["food_truck_id"], name: "index_schedule_recurrences_on_food_truck_id"
     t.index ["market_id"], name: "index_schedule_recurrences_on_market_id"
   end
