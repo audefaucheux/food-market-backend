@@ -23,28 +23,27 @@ class FoodTrucksController < ApplicationController
   end
 
   def update
-    food_truck = FoodTruck.find(params[:id])
-    
+    old_food_truck = FoodTruck.find(params[:id])
     #handle cuisine update
     if params[:food_truck][:cuisines]
       # delete all existing cuisines
-      food_truck.cuisines.each do |old_cuisine|
-        food_truck_cuisine = FoodTruckCuisine.find_by(cuisine_id: old_cuisine.id, food_truck_id: food_truck.id)
+      old_food_truck.cuisines.each do |old_cuisine|
+        food_truck_cuisine = FoodTruckCuisine.find_by(cuisine_id: old_cuisine.id, food_truck_id: params[:id])
         food_truck_cuisine.destroy
       end
       # add all new cuisines
-      params[:food_truck][:cuisines].each do |new_cuisine|
-        FoodTruckCuisine.create(cuisine_id: new_cuisine.to_i, food_truck_id: food_truck.id)
+      params[:food_truck][:cuisines].each do |cuisine|
+        FoodTruckCuisine.create(cuisine_id: cuisine.to_i, food_truck_id: params[:id])
       end
-      food_truck.update(name: params[:food_truck][:name], description: params[:food_truck][:description], profile_picture: params[:food_truck][:profile_picture], twitter_account: params[:food_truck][:twitter_account])
-    else
-      food_truck.update(food_truck_params)
     end
+
+    updated_food_truck = FoodTruck.find(params[:id])
+    updated_food_truck.update(food_truck_params)
     
-    if (food_truck.valid?)
-      render json: {food_truck: FoodTruckSerializer.new(food_truck)}
+    if (updated_food_truck.valid?)
+      render json: {food_truck: FoodTruckSerializer.new(updated_food_truck)}
     else
-      render json: { errors: food_truck.errors.full_messages }
+      render json: { errors: updated_food_truck.errors.full_messages }
     end
   end
 

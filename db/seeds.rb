@@ -22,7 +22,7 @@ french = Cuisine.create(name: "French")
 italian = Cuisine.create(name: "Italian")
 japanese = Cuisine.create(name: "Japanese")
 
-poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"Poutine Purveyors - London's proper poutine Brick Lane market on Sundays", profile_picture:"https://assets.londonist.com/uploads/2018/11/i875/poutinerie.jpg", twitter_account:"@The Poutinerie")
+poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"Poutine Purveyors - London's proper poutine Brick Lane market on Sundays", profile_picture:"https://www.veganfoodandliving.com/wp-content/uploads/2017/07/Eat-North-1.jpg", twitter_account:"@The Poutinerie")
 fat_food = FoodTruck.create(name: "The Fat Food", user: tom, description:"Get Fat", profile_picture:"", twitter_account:"@Fat Place" )
 mama_mia = FoodTruck.create(name: "Mama Mia", user: aude, description:"pizza !", profile_picture:"https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2018%2F03%2F55cd28cae8ee78fe1e52ab1adc9eafff24c9af92.jpeg", twitter_account:"@Mama Mia" )
 
