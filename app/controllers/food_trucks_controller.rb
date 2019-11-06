@@ -36,7 +36,7 @@ class FoodTrucksController < ApplicationController
       params[:food_truck][:cuisines].each do |new_cuisine|
         FoodTruckCuisine.create(cuisine_id: new_cuisine.to_i, food_truck_id: food_truck.id)
       end
-      food_truck.update(name: params[:food_truck][:name], description: params[:food_truck][:description], profile_picture: params[:food_truck][:profile_picture], twitter_account: params[:food_truck][:twitter_account], archived: params[:food_truck][:archived])
+      food_truck.update(name: params[:food_truck][:name], description: params[:food_truck][:description], profile_picture: params[:food_truck][:profile_picture], twitter_account: params[:food_truck][:twitter_account])
     else
       food_truck.update(food_truck_params)
     end
