@@ -23,10 +23,12 @@ italian = Cuisine.create(name: "Italian")
 
 poutinerie = FoodTruck.create(name: "The Poutinerie", user: aude, description:"Poutine Purveyors - London's proper poutine Brick Lane market on Sundays", profile_picture:"https://assets.londonist.com/uploads/2018/11/i875/poutinerie.jpg", twitter_account:"@The Poutinerie")
 fat_food = FoodTruck.create(name: "The Fat Food", user: tom, description:"Get Fat", profile_picture:"", twitter_account:"@Fat Place" )
+mama_mia = FoodTruck.create(name: "Mama Mia", user: aude, description:"pizza !", profile_picture:"https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2018%2F03%2F55cd28cae8ee78fe1e52ab1adc9eafff24c9af92.jpeg", twitter_account:"@Mama Mia" )
 
 ft_cuisine_1 = FoodTruckCuisine.create(cuisine_id: canadian.id, food_truck_id: poutinerie.id)
 ft_cuisine_2 = FoodTruckCuisine.create(cuisine_id: french.id, food_truck_id: poutinerie.id)
 ft_cuisine_3 = FoodTruckCuisine.create(cuisine_id: french.id, food_truck_id: fat_food.id)
+ft_cuisine_4 = FoodTruckCuisine.create(cuisine_id: italian.id, food_truck_id: mama_mia.id)
 
 brick_lane_upmarket = Market.create(name: "Brick Lane Upmarket", address_1: "The Truman Brewery", address_2: "91 Brick Ln", postcode: "E1 6QL", town: "London", latitude:"51.520193", longitude:"-0.071876")
 leather_lane_market = Market.create(name: "Leather Lane Street Market", address_1: "Leather Ln", address_2: "Holborn", postcode: "EC1N 7TJ", town: "London", latitude:"51.520148", longitude:"-0.109413")
