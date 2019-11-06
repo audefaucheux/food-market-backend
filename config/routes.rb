@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :schedule_recurrences, only: [:index, :show, :create, :update, :destroy]
   resources :food_trucks, only: [:index, :show, :create, :update]
   resources :users, only: [:index, :show, :create]
-  resources :food_truck_cuisines, only: [:index, :destroy]
+  # resources :food_truck_cuisines, only: [:index, :create, :destroy]
   post "/login", to: "auth#create"
   post "/validate", to: "auth#validate"
   post "/sign_up", to:"users#create"
