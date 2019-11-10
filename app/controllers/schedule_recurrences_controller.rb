@@ -20,7 +20,7 @@ class ScheduleRecurrencesController < ApplicationController
     schedule_recurrence = ScheduleRecurrence.find(params[:id])
     schedule_recurrence.update(schedule_recurrence_params)
     if (schedule_recurrence.valid?)
-      render json: { schedule_recurrence: schedule_recurrence}
+      render json: { schedule_recurrence: ScheduleRecurrenceSerializer.new(schedule_recurrence)}
     else
       render json: { errors: schedule_recurrence.errors.full_messages }
     end
