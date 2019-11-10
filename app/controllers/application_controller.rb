@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
   before_action :set_current_user
 
-  def form_data
-    markets = Market.all
-    cuisines = Cuisine.all
-    render json: { markets: markets.map{ |m| MarketSerializer.new(m) }, cuisines: cuisines}
-  end
+    def form_data
+        markets = Market.all
+        cuisines = Cuisine.all
+        render json: { markets: markets.map{ |m| MarketSerializer.new(m) }, cuisines: cuisines}
+    end
 
     def issue_token(payload)
         JWT.encode(payload, ENV['RAILS_SECRET'])

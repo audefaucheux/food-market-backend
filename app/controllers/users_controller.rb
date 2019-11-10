@@ -17,10 +17,24 @@ class UsersController < ApplicationController
     end
   end 
 
+  def update
+    user = User.find(params[:id])
+    if user && user.authenticate(user_params[:current_password]) #&& user_params[:passowrd] == user_params[:passowrd_confirmation])
+      if user_params[:password] && user_params[:password] == user_params[:password_confirmation]
+        user.update(password: user_params[:password])
+        render json: {success: ["Password updated successfully"]}
+      else
+        render json: {errors: ["New password and new password confirmation don't match"]}
+      end
+    else 
+      render json: {errors: ["Current password Invalid"]}
+    end
+  end
+
   private 
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
   end
   
 end
