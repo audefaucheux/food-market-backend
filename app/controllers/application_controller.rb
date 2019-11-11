@@ -2,8 +2,8 @@ class ApplicationController < ActionController::API
   before_action :set_current_user
 
     def form_data
-        markets = Market.all
-        cuisines = Cuisine.all
+        markets = Market.all.sort_by{|market| market[:name]}
+        cuisines = Cuisine.all.sort_by{|cuisine| cuisine[:name]}
         render json: { markets: markets.map{ |m| MarketSerializer.new(m) }, cuisines: cuisines}
     end
 
