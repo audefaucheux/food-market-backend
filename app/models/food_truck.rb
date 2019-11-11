@@ -8,5 +8,6 @@ class FoodTruck < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+  validates :description, length: { maximum: 100 }
 
 end
