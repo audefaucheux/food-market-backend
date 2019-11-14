@@ -1,24 +1,30 @@
-# README
+# Yum Break - Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get the backend up and running, run the below commands:
 
-Things you may want to cover:
+Run bundle install
+```
+bundle install
+```
 
-* Ruby version
+Create the database
+```
+rails db:create
+```
 
-* System dependencies
+Run the migration files
+```
+rails db:migrate
+```
 
-* Configuration
+Run the seed data - feel free to edit this file if you would like to add more seed data. Please note the markets and cuisines can only be added in the backend.
+```
+rails db:seed
+```
 
-* Database creation
+Run the app on the local host
+```
+rails s
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Once you completed all this steps, refer back to the [food-market-frontend](https://github.com/audefaucheux/food-market-frontend) repositories to set the front end.
