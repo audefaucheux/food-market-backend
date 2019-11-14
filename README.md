@@ -1,5 +1,6 @@
 # Yum Break - Backend
 
+For a short project description, please refer to the [food-market-frontend](https://github.com/audefaucheux/food-market-frontend) markdown
 To get the backend up and running, run the below commands:
 
 Run bundle install
