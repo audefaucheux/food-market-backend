@@ -27,4 +27,4 @@ Run the app on the local host
 rails s
 ```
 
-Once you completed all this steps, refer back to the [food-market-frontend](https://github.com/audefaucheux/food-market-frontend) repositories to set the front end.
+Once you completed all this steps, refer back to the [food-market-frontend](https://github.com/audefaucheux/food-market-frontend) "Getting Started" section to set the frontend.
