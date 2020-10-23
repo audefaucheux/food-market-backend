@@ -29,7 +29,6 @@ rails db:seed
 ```
 
 Create `application.yml` file in the config folder and add an environment variable `RAILS_SECRET`
-eg:
 
 ```
 RAILS_SECRET: "123"
